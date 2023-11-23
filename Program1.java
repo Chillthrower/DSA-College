@@ -1,13 +1,15 @@
 import java.util.Scanner;
 
-public class Student {
+public class Student 
+{
     private String usn;
     private String name;
     private String branch;
     private String phone;
 
     // Constructor to initialize the Student object
-    public Student(String usn, String name, String branch, String phone) {
+    public Student(String usn, String name, String branch, String phone) 
+    {
         this.usn = usn;
         this.name = name;
         this.branch = branch;
@@ -15,7 +17,8 @@ public class Student {
     }
 
     // Method to display the details of the Student
-    public void displayDetails() {
+    public void displayDetails() 
+    {
         System.out.println("USN: " + usn);
         System.out.println("Name: " + name);
         System.out.println("Branch: " + branch);
@@ -23,7 +26,8 @@ public class Student {
         System.out.println("-----------------------------");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the number of students: ");
@@ -33,7 +37,8 @@ public class Student {
         Student[] students = new Student[n];
 
         // Input details for each student and create Student objects
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) 
+        {
             System.out.println("\nEnter details for Student " + (i + 1) + ":");
             System.out.print("Enter USN: ");
             String usn = scanner.next();
@@ -50,7 +55,8 @@ public class Student {
 
         // Display details of all students
         System.out.println("\nDetails of all Students:");
-        for (Student student : students) {
+        for (Student student : students) 
+        {
             student.displayDetails();
         }
 
