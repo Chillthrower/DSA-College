@@ -5,10 +5,20 @@ library(plotly)
 titanic_data = read.csv("train.csv")
 
 sum(is.na(titanic_data))
+summary(titanic_data)
 
 # titanic_data <- na.omit(titanic_data)
 
 titanic_data$Age[is.na(titanic_data$Age)] <- mean(titanic_data$Age, na.rm = TRUE)
+
+missing_values <- colSums(is.na(data))
+print(missing_values)
+
+adult_passengers <- filter(data, Age > 18)
+sorted_titanic <- arrange(data, desc(Fare))
+
+t_test_result <- t.test(Age ~ Survived, data = data)
+correlation_coefficient <- cor(data$Age, data$Fare)
 
 print(titanic_data)
 lm_model <- lm(PassengerId~ Pclass, data = titanic_data)
@@ -47,6 +57,10 @@ scatter_plot
 heat_map <- ggplot(titanic_data, aes(x = Pclass, y = Survived)) + stat_bin_2d(bins = 10, aes(fill = ..count..)) + labs(title = "coool", x = "Pclass", y = "Survived", fill = "Frequency") + scale_fill_continuous(name = "Frequency", low = "white", high = "blue")
 
 heat_map
+
+box_plot <- boxplot(Age ~ Survived, data = data, col = c("red", "blue"), main = "Boxplot of Age by Survived")
+
+box_plot
 
 ggsave("bar_plot_cool_1.png", plot = bar_graph, width = 8, height = 6)
 
